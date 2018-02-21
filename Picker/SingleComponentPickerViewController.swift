@@ -55,4 +55,11 @@ func numberOfComponents(in pickerView: UIPickerView)-> Int {
     return 1
 }
 
-func pickerView
+func pickerView(_pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    return characterNames.count
+}
+
+func pickerView(_pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String {
+    return characterNames[row]
+}
+
