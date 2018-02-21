@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SingleComponentPickerViewController: UIViewController, UIPickerViewDelegate,UIPickerViewDelegate, UIPickerViewDataSource {
+class SingleComponentPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var singlePicker: UIPickerView!
     
@@ -48,18 +48,23 @@ class SingleComponentPickerViewController: UIViewController, UIPickerViewDelegat
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
+    
+    func numberOfComponents(in pickerView: UIPickerView)-> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return characterNames.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String {
+        return characterNames[row]
+    }
+    
+    
+    
+    
 }
 
 
-func numberOfComponents(in pickerView: UIPickerView)-> Int {
-    return 1
-}
-
-func pickerView(_pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    return characterNames.count
-}
-
-func pickerView(_pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String {
-    return characterNames[row]
-}
 
